@@ -1,0 +1,16 @@
+Config {
+       position = Top,
+       font = "xft:Droid Sans Mono:size=10:bold:antialias=true",
+       commands = [
+                Run Cpu ["-L","3","-H","60","--normal","green","--high","red"] 10,
+                Run Memory ["-t","Mem: <usedratio>%"] 10,
+                Run Swap [] 10,
+                Run Date "%a %b %_d %l:%M" "date" 10,
+                Run Kbd [("us", "US"), ("ru", "RU")],
+                Run Network "wlp1s0" [] 10,
+                Run StdinReader
+        ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %wlp1s0% | %cpu% | %memory% * %swap%    <fc=#32a8a8>%date%</fc> <fc=#26728a>[%kbd%]</fc> "
+       }
